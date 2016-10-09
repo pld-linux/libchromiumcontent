@@ -44,10 +44,10 @@ ExclusiveArch:	%{x8664} %{ix86}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %ifarch %{x8664}
-%define		target x64
+%define		target_arch x64
 %endif
 %ifarch %{ix86}
-%define		target ia32
+%define		target_arch ia32
 %endif
 
 %description
@@ -74,7 +74,7 @@ Static files for libchromiumcontent
 %setup -q -a1
 # unpack chromium source
 mkdir -p vendor/chromium
-cp -a chromium-%{version} vendor/chromium/src
+mv chromium-%{version} vendor/chromium/src
 # use system clang
 mkdir -p vendor/chromium/src/third_party/llvm-build/Release+Asserts/{bin,lib}
 ln -s %{_bindir}/clang vendor/chromium/src/third_party/llvm-build/Release+Asserts/bin/clang
@@ -87,9 +87,9 @@ ln -s %{_bindir}/clang++ vendor/chromium/src/third_party/llvm-build/Release+Asse
 %patch4 -p1
 
 %build
-script/update -t %{target}
-script/build -t %{target}
-script/create-dist -t %{target}
+script/update -t %{target_arch}
+script/build -t %{target_arch}
+script/create-dist -t %{target_arch}
 
 %install
 rm -rf $RPM_BUILD_ROOT
