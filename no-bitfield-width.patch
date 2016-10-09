@@ -1,0 +1,35 @@
+Index: libchromiumcontent-47.0.2526.110/vendor/chromium/src/build/common.gypi
+===================================================================
+--- libchromiumcontent-47.0.2526.110.orig/vendor/chromium/src/build/common.gypi
++++ libchromiumcontent-47.0.2526.110/vendor/chromium/src/build/common.gypi
+@@ -442,7 +442,7 @@
+       # Run tools/clang/scripts/update.sh to make sure they are compiled.
+       # This causes 'clang_chrome_plugins_flags' to be set.
+       # Has no effect if 'clang' is not set as well.
+-      'clang_use_chrome_plugins%': 1,
++      'clang_use_chrome_plugins%': 0,
+ 
+       # Enable building with ASAN (Clang's -fsanitize=address option).
+       # -fsanitize=address only works with clang, but asan=1 implies clang=1
+@@ -2620,7 +2620,7 @@
+         '-Wno-shift-negative-value',
+ 
+         # TODO(thakis): Consider enabling this?
+-        '-Wno-bitfield-width',
++        #'-Wno-bitfield-width',
+       ],
+     },
+     'includes': [ 'set_clang_warning_flags.gypi', ],
+Index: libchromiumcontent-47.0.2526.110/vendor/chromium/src/build/config/compiler/BUILD.gn
+===================================================================
+--- libchromiumcontent-47.0.2526.110.orig/vendor/chromium/src/build/config/compiler/BUILD.gn
++++ libchromiumcontent-47.0.2526.110/vendor/chromium/src/build/config/compiler/BUILD.gn
+@@ -735,7 +735,7 @@ config("default_warnings") {
+         "-Wno-shift-negative-value",
+ 
+         # TODO(thakis): Consider enabling this?
+-        "-Wno-bitfield-width",
++        #"-Wno-bitfield-width",
+       ]
+     }
+   }

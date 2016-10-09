@@ -1,0 +1,20 @@
+Index: libchromiumcontent-50.0.2661.11/script/update
+===================================================================
+--- libchromiumcontent-50.0.2661.11.orig/script/update
++++ libchromiumcontent-50.0.2661.11/script/update
+@@ -31,13 +31,12 @@ def main():
+ #  if not is_source_tarball_updated(version):
+ #    download_source_tarball(version)
+ 
+-  if sys.platform == 'linux2':
+-    install_sysroot()
++#  if sys.platform == 'linux2':
++#    install_sysroot()
+ 
+   target_arch = args.target_arch
+   return (apply_patches() or
+           copy_chromiumcontent_files() or
+-          update_clang() or
+           run_gyp(target_arch))
+ 
+ 

@@ -1,0 +1,17 @@
+Index: libchromiumcontent/script/update
+===================================================================
+--- libchromiumcontent.orig/script/update
++++ libchromiumcontent/script/update
+@@ -27,9 +27,9 @@ TARBALL_URL = 'https://github.com/{0}/re
+ def main():
+   args = parse_args()
+ 
+-  version = chromium_version()
+-  if not is_source_tarball_updated(version):
+-    download_source_tarball(version)
++#  version = chromium_version()
++#  if not is_source_tarball_updated(version):
++#    download_source_tarball(version)
+ 
+   if sys.platform == 'linux2':
+     install_sysroot()
