@@ -80,11 +80,11 @@ mkdir -p vendor/chromium/src/third_party/llvm-build/Release+Asserts/{bin,lib}
 ln -s %{_bindir}/clang vendor/chromium/src/third_party/llvm-build/Release+Asserts/bin/clang
 ln -s %{_bindir}/clang++ vendor/chromium/src/third_party/llvm-build/Release+Asserts/bin/clang++
 
-%patch0 -p1
-%patch1 -p1
-%patch2 -p1
-%patch3 -p1
-%patch4 -p1
+%patch -P0 -p1
+%patch -P1 -p1
+%patch -P2 -p1
+%patch -P3 -p1
+%patch -P4 -p1
 
 %build
 script/update -t %{target_arch}
